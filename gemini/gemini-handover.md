@@ -13,3 +13,11 @@
 - `prettier` 패키지를 dev dependency로 설치했습니다.
 - `./gemini/conventions/03-coding-style.md` 파일의 규칙에 따라 `.prettierrc.json` 파일을 생성했습니다.
 - 주요 규칙: printWidth: 80, tabWidth: 2, singleQuote: true, trailingComma: 'all'
+
+---
+
+작업 한줄 요약 : TypeScript 개발 환경 설정
+상세 변경 내용(5줄 내외) :
+- `typescript`와 `@types/node`를 dev dependency로 설치했습니다.
+- `npx tsc --init` 명령어를 사용하여 `tsconfig.json` 파일을 생성했습니다.
+- 기본적인 TypeScript 컴파일러 옵션이 설정되었습니다.
