@@ -4,7 +4,11 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "clean": "rimraf dist",
+    "build:ts": "tsc",
+    "build:assets": "cpx \"app/**/*.{html,css,json,png}\" dist",
+    "build": "npm run clean && npm run build:ts && npm run build:assets"
   },
   "repository": {
     "type": "git",
@@ -20,9 +24,12 @@
   "devDependencies": {
     "@commitlint/cli": "^19.8.1",
     "@commitlint/config-conventional": "^19.8.1",
+    "@types/chrome": "^0.1.12",
     "@types/node": "^24.5.2",
+    "cpx": "^1.5.0",
     "husky": "^9.1.7",
     "prettier": "^3.6.2",
+    "rimraf": "^6.0.1",
     "typescript": "^5.9.2"
   }
 }
