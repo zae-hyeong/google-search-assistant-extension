@@ -1,11 +1,12 @@
 에러 메시지 내용: 
-글자 깨짐 오류
+1. Service worker registration failed. Status code: 15
+2. Uncaught ReferenceError: exports is not defined
 
 발생 상황: 
-확장 프로그램의 팝업 UI(`popup.html`)에서 한글 텍스트가 정상적으로 표시되지 않고 깨져 보이는 현상.
+확장 프로그램 로드 시 background.js에서 `exports is not defined` 오류가 발생하며 서비스 워커 등록에 실패합니다.
 
 예상 원인: 
-HTML 파일에 문자 인코딩 방식이 명시되어 있지 않아, 브라우저가 기본 인코딩(예: ISO-8859-1)으로 페이지를 렌더링하여 한글과 같은 멀티바이트 문자가 깨지는 것으로 예상됩니다. `popup.html` 파일의 `<head>` 섹션에 `<meta charset="UTF-8">` 태그가 누락되었습니다.
+`tsconfig.json`의 `"module": "nodenext"` 설정으로 인해 TypeScript가 CommonJS 모듈 방식으로 코드를 컴파일하여, 브라우저 환경에서 지원하지 않는 `exports` 객체를 사용하기 때문입니다.
 
 해결 방안: 
-`app/popup/popup.html` 파일의 `<head>` 태그 내부에 `<meta charset="UTF-8">` 태그를 추가하여 브라우저에 UTF-8 인코딩을 사용하도록 명시적으로 지정합니다.
+`tsconfig.json` 파일의 `compilerOptions`에서 `"module"` 설정을 `"nodenext"`에서 `"esnext"`로 변경하고, `"moduleResolution"`을 `"bundler"`로 설정하여 최신 ES 모듈 및 번들러 해석 방식을 사용하도록 수정합니다.

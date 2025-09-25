@@ -1,5 +1,3 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
 console.log("Background script running.");
 chrome.runtime.onInstalled.addListener(() => {
     console.log("Search Flow extension installed.");
@@ -21,4 +19,5 @@ chrome.contextMenus.onClicked.addListener((info, tab) => {
         // TODO: Implement context menu search logic
     }
 });
+export {};
 //# sourceMappingURL=background.js.map

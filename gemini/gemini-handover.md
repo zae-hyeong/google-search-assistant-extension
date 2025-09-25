@@ -1,2 +1,2 @@
-작업 한줄 요약 : `popup.html` 파일의 문자 인코딩 오류 수정
-상세 변경 내용(5줄 내외) : `error-msg.md`의 '글자 깨짐 오류'를 분석했습니다. 원인은 `popup.html`에 문자 인코딩 설정 (`<meta charset="UTF-8">`)이 누락된 것이었습니다. `gemini/error/error-analyze.md`에 분석 내용을 기록하고, `popup.html`의 `<head>` 섹션에 해당 메타 태그를 추가하여 문제를 해결했습니다.
+작업 한줄 요약 : `tsconfig.json`의 모듈 설정을 수정하여 서비스 워커 오류 해결
+상세 변경 내용(5줄 내외) : `error-msg.md`의 'exports is not defined' 오류를 분석했습니다. 원인은 `tsconfig.json`의 `module` 설정이 `nodenext`로 되어 있어 브라우저와 호환되지 않는 CommonJS 모듈로 컴파일되기 때문이었습니다. `module`을 `esnext`로, `moduleResolution`을 `bundler`로 변경하고 `npx tsc`로 재컴파일하여 문제를 해결했습니다.

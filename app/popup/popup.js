@@ -1,5 +1,3 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
 console.log("Popup script running.");
 document.addEventListener("DOMContentLoaded", () => {
     const mainSearchInput = document.getElementById("mainSearchInput");
@@ -20,4 +18,5 @@ document.addEventListener("DOMContentLoaded", () => {
         console.log("History tab clicked");
     });
 });
+export {};
 //# sourceMappingURL=popup.js.map
