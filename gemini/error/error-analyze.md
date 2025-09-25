@@ -1,12 +1,11 @@
 에러 메시지 내용: 
-1. Service worker registration failed. Status code: 15
-2. Uncaught ReferenceError: exports is not defined
+Uncaught SyntaxError: Unexpected token 'export'
 
 발생 상황: 
-확장 프로그램 로드 시 background.js에서 `exports is not defined` 오류가 발생하며 서비스 워커 등록에 실패합니다.
+확장 프로그램 로드 시 background.js에서 `Unexpected token 'export'` 오류가 발생합니다.
 
 예상 원인: 
-`tsconfig.json`의 `"module": "nodenext"` 설정으로 인해 TypeScript가 CommonJS 모듈 방식으로 코드를 컴파일하여, 브라우저 환경에서 지원하지 않는 `exports` 객체를 사용하기 때문입니다.
+TypeScript가 `background.ts`를 모듈로 간주하여 `export` 구문이 포함된 JavaScript 파일을 생성했으나, Chrome 확장 프로그램의 서비스 워커는 ES 모듈을 지원하지 않기 때문입니다.
 
 해결 방안: 
-`tsconfig.json` 파일의 `compilerOptions`에서 `"module"` 설정을 `"nodenext"`에서 `"esnext"`로 변경하고, `"moduleResolution"`을 `"bundler"`로 설정하여 최신 ES 모듈 및 번들러 해석 방식을 사용하도록 수정합니다.
+`background.ts` 파일의 맨 마지막에 `export {};` 라인을 추가합니다. 이는 TypeScript가 파일을 모듈로 인식하게 하면서도, 실제로는 아무것도 내보내지 않아 `export` 관련 구문 생성을 방지하여 서비스 워커에서 오류가 발생하는 것을 막아줍니다.

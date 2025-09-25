@@ -20,3 +20,5 @@ document.addEventListener("DOMContentLoaded", () => {
     console.log("History tab clicked");
   });
 });
+
+export {};
