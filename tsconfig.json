@@ -1,11 +1,21 @@
 {
   "compilerOptions": {
-    "module": "es6",
-    "target": "es6",
-    "lib": ["dom", "es6"],
+    // File Layout
+    // "rootDir": "./src",
+    // "outDir": "./dist",
+
+    // Environment Settings
+    // See also https://aka.ms/tsconfig/module
+    "module": "esnext",
+    "moduleResolution": "bundler",
+    "target": "esnext",
     "types": ["chrome"],
-    "rootDir": "./app",
-    "outDir": "./dist",
+    // For nodejs:
+    // "lib": ["esnext"],
+    // "types": ["node"],
+    // and npm install -D @types/node
+
+    // Other Outputs
     "sourceMap": true,
     "strict": true,
     "skipLibCheck": true

@@ -1,3 +1,7 @@
-파일 오류 : ~\Programming\google-search-assistant-extension\app
+Service worker registration failed. Status code: 15
 
-백그라운드 스크립트('')를 로드하지 못했습니다. 매니페스트를 로드할 수 없습니다.
+Uncaught SyntaxError: Unexpected token 'export'
+컨텍스트
+background.js
+스택 추적
+background.js:22 (익명의 함수)

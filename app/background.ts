@@ -23,3 +23,5 @@ chrome.contextMenus.onClicked.addListener((info, tab) => {
     // TODO: Implement context menu search logic
   }
 });
+
+export {};
