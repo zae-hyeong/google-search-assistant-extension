@@ -4,6 +4,17 @@ document.addEventListener("DOMContentLoaded", () => {
     if (mainSearchInput) {
         mainSearchInput.focus();
     }
+    // Advanced Search Button Listeners
+    const advancedSearchButtons = document.querySelectorAll(".advanced-search-btn");
+    advancedSearchButtons.forEach(button => {
+        button.addEventListener("click", () => {
+            const command = button.dataset.command;
+            if (command) {
+                mainSearchInput.value += `${command} `;
+                mainSearchInput.focus();
+            }
+        });
+    });
     // TODO: Implement tab switching logic and content loading
     document.getElementById("advancedSearchTab")?.addEventListener("click", () => {
         console.log("Advanced Search tab clicked");

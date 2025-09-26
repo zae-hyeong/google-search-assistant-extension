@@ -1,0 +1,6 @@
+feat(popup): implement basic advanced search tab
+
+- Add UI buttons for advanced search operators (`site:`, `filetype:`, `intitle:`) to `popup.html`.
+- Implement logic in `popup.ts` to append the corresponding operator to the main search input.
+- Reinstall dependencies to resolve build issues.
+- Update .gitignore to exclude node_modules.

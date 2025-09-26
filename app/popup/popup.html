@@ -9,14 +9,19 @@
     <h1>Search Flow</h1>
     <input type="text" id="mainSearchInput" placeholder="검색어를 입력하세요...">
     <div id="tabs">
-        <button id="advancedSearchTab">고급 검색</button>
+        <button id="
+        ">고급 검색</button>
         <button id="multiSearchTab">다중 검색</button>
         <button id="templatesTab">템플릿</button>
         <button id="historyTab">최근 기록</button>
     </div>
     <div id="tabContent">
-        <!-- Content will be loaded here based on tab selection -->
-        <p>Welcome to Search Flow!</p>
+        <div id="advancedSearchContent">
+            <button class="advanced-search-btn" data-command="site:">사이트 검색</button>
+            <button class="advanced-search-btn" data-command="filetype:">파일 형식</button>
+            <button class="advanced-search-btn" data-command="intitle:">제목 검색</button>
+            <!-- 날짜 범위 기능은 추후 구현 -->
+        </div>
     </div>
     <script type="module" src="popup.js"></script>
 </body>
