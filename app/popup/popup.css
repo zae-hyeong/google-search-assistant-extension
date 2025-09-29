@@ -1,36 +1,94 @@
 body {
-    font-family: Arial, sans-serif;
     width: 300px;
-    padding: 10px;
+    font-family: sans-serif;
 }
 
-h1 {
-    font-size: 1.2em;
-    color: #333;
-}
-
-#mainSearchInput {
-    width: 100%;
-    padding: 8px;
+input#mainSearchInput {
+    width: 95%;
     margin-bottom: 10px;
-    box-sizing: border-box;
 }
 
-#tabs button {
-    padding: 8px 12px;
-    margin-right: 5px;
-    border: 1px solid #ccc;
-    background-color: #f0f0f0;
+#tabContainer {
+    display: flex;
+    flex-direction: column;
+}
+
+.tab-item {
+    margin-bottom: 5px;
+}
+
+.tab-toggle {
+    display: flex;
+    align-items: center;
     cursor: pointer;
 }
 
-#tabs button.active {
-    background-color: #e0e0e0;
-    border-bottom: none;
+.tab-toggle span {
+    margin-left: 8px;
 }
 
-#tabContent {
-    border: 1px solid #ccc;
-    padding: 10px;
-    margin-top: -1px; /* Overlap with tab border */
+/* The switch - the box around the slider */
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 34px;
+    height: 20px;
+}
+
+/* Hide default HTML checkbox */
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+/* The slider */
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    transition: .4s;
+    border-radius: 20px;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 12px;
+    width: 12px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    transition: .4s;
+    border-radius: 50%;
+}
+
+input:checked + .slider {
+    background-color: #2196F3;
+}
+
+input:checked + .slider:before {
+    transform: translateX(14px);
+}
+
+.sub-buttons {
+    display: none; /* 기본적으로 숨김 */
+    overflow: hidden;
+    max-height: 0;
+    transition: max-height 0.3s ease-out;
+    padding-left: 42px; /* 토글 버튼 너비만큼 들여쓰기 */
+    display: flex;
+    flex-direction: column;
+}
+
+.sub-btn {
+    margin-top: 5px;
+}
+
+#historySection {
+    margin-top: 15px;
 }
