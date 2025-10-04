@@ -1,11 +1,11 @@
 에러 메시지 내용: 
-Uncaught SyntaxError: Unexpected token 'export'
+Could not load icon 'assets/images/icon16.png' specified in 'icons'. 매니페스트를 로드할 수 없습니다.
 
 발생 상황: 
-확장 프로그램 로드 시 background.js에서 `Unexpected token 'export'` 오류가 발생합니다.
+확장 프로그램 로드 시 `manifest.json`에 명시된 아이콘을 찾지 못해 매니페스트 로드에 실패합니다.
 
 예상 원인: 
-TypeScript가 `background.ts`를 모듈로 간주하여 `export` 구문이 포함된 JavaScript 파일을 생성했으나, Chrome 확장 프로그램의 서비스 워커는 ES 모듈을 지원하지 않기 때문입니다.
+`package.json`의 `build:assets` 스크립트가 `assets` 폴더를 `dist` 폴더 내부에 통째로 복사하여, 아이콘의 최종 경로가 `dist/assets/images/`가 되었습니다. 하지만 `manifest.json`은 `dist` 폴더를 기준으로 `assets/images/` 경로를 찾으므로 경로가 중복되어 아이콘을 찾지 못하는 문제입니다.
 
 해결 방안: 
-`background.ts` 파일의 맨 마지막에 `export {};` 라인을 추가합니다. 이는 TypeScript가 파일을 모듈로 인식하게 하면서도, 실제로는 아무것도 내보내지 않아 `export` 관련 구문 생성을 방지하여 서비스 워커에서 오류가 발생하는 것을 막아줍니다.
+`package.json`의 `build:assets` 스크립트에서 `xcopy assets dist\assets /s /i /y` 부분을 `xcopy assets dist /s /i /y`로 수정하여 `assets` 폴더의 내용물이 `dist` 폴더로 바로 복사되도록 수정합니다.

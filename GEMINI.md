@@ -1,55 +1,37 @@
-아래의 일일 명령은 지금 지시할 명령입니다. 아래 문장을 실행해주세요.
-<!-- 일일 명령 시작 -->
+# Gemini Code Assistant Context
 
-리팩토링 작업을 수행할겁니다. 환경은 윈도우이므로, 윈도우에 적합한 명령어를 사용해주세요.
+## Project Overview
 
-1. src 파일에는 개발을 위한 파일을 넣어주세요.
-2. dist 파일에는 실제 확장프로그램 실행을 위한 모든 파일을 넣어주세요.
-3. asset 파일에는 프로그램 실행에 필요한 이미지 등의 파일을 넣어주세요.
+This project is a Chrome browser extension named **Search Flow**. It is built using **TypeScript**, HTML, and CSS. The primary goal of the extension is to enhance and streamline the user's search workflow by providing features like quick site-specific searches, multi-platform searching, and a visual query builder for advanced search operators.
 
-파일 구조가 변경되는 경우, 작업 공간 폴더 구조도 함께 수정해주세요.
+The project is structured to separate source files from distributable build files:
+- `src/`: Contains all the source TypeScript (`.ts`), HTML, and CSS files.
+- `dist/`: Contains the compiled and packaged files, ready to be loaded as an unpacked extension in Chrome.
+- `assets/`: Contains static assets like icons.
 
-<!-- 일일 명령 종료 -->
+## Building and Running
 
-<!-- 지침 시작 -->
-당신은 유명 크롬 익스텐션 개발자입니다. 앞으로의 작업 지침은 아래 지침을 엄격히 준수해주세요.
-작업에 사용할 지침은 모두 ./gemini 폴더 아래에 있습니다.
+This project uses `npm` for dependency management and running scripts.
 
-### 공통 지침
-작업이 완료되면 커밋 컨벤션을 준수하여 커밋을 진행해주세요.
+- **Installation:**
+  ```shell
+  npm install
+  ```
 
-### 작업 공간
-서비스의 주요 기능은 ./app 폴더 아래에서 작업을 진행해주세요. 기능 별로 파일을 분리하고, 폴더 구조가 복잡해지지 않도록 적합한 폴더 구조로 분리해주세요. 폴더 구조가 분리되는 경우에는 '/gemini/diagram.md' 파일에 구조도를 작성해주세요.
+- **Building the extension:**
+  The following command cleans the `dist` directory, compiles the TypeScript files, and copies all necessary assets (`.html`, `.css`, images, etc.) to the `dist` folder.
+  ```shell
+  npm run build
+  ```
 
-### 작업 관리
-작업이 완료되면 커밋을 작성하기 전에 이어서 작업을 수행할 수 있도록 작업 내용을 'gemini/gemini-handover.md'에 작성해주세요.
-이전 프롬프트나 기록이 없는 경우 'gemini/gemini-handover.md'를 이전 기록을 확인해주세요.
-커밋을 진행할때, 프롬프트 기록을 추적할 수 있게 GEMINI.md도 함께 커밋해주세요.
+- **Running the extension:**
+  1.  Open Google Chrome and navigate to `chrome://extensions`.
+  2.  Enable "Developer mode" using the toggle in the top-right corner.
+  3.  Click on "Load unpacked".
+  4.  Select the `dist` directory from this project.
 
-### 기록 관리
-gemini-handover 작성 양식은 아래 예시를 엄격하게 준수해주세요.
-```
-작업 한줄 요약 : 
-상세 변경 내용(5줄 내외) : 
-```
+## Development Conventions
 
-### 컨벤션
-코드 작성에 필요한 컨벤션은 './gemini/conventions' 폴더 아래에 있습니다.
-01-commit-convention : 커밋 컨벤션을 위한 파일입니다. 커밋 메시지를 작성할때, 이 문서의 지침을 따라주세요.
-02-naming-convention : 변수 및 함수 등의 자바스크립트 식별자 네이밍 컨벤션을 위한 파일입니다.
-03-coding-style.md : 코드 스타일링 통일을 위한 스타일 컨벤션입니다. 코드 작성히 이 문서의 지침을 따라주세요.
-04-pull-request-convention.md : Pull Request 양식 작성을 위한 컨벤션입니다. PR 메시지 작성을 요청받았을때, 이 문서의 지침을 따라주세요. 작성된 md 형식의 출력물은 './gemini/output.md' 파일에 작성해주세요.
-
-### 기능 명세
-프로젝트의 주요 기능은 './gemini/specifications' 폴더 아래에 있습니다.
-PRD.md : 제품 요구사항 명세서입니다. 대략적인 기능은 이 문서를 따라주세요.
-
-### 에러 관리
-에러가 발생하는 경우에는 './gemini/error/error-msg.md'에 작성해두겠습니다. 에러 메시지를 기반으로 원인을 분석하고 해결하기 위한 방안을 './gemini/error/error.md'에 기록해주세요. 에러 기록은 아래 양식을 준수해주세요.
-```
-에러 메시지 내용: 
-발생 상황: 
-예상 원인: 
-해결 방안: 
-```
-<!-- 지침 종료 -->
+- **Code Formatting:** The project uses **Prettier** for automatic code formatting. It is recommended to format files before committing.
+- **Commit Messages:** Commits must follow the **Conventional Commits** specification (e.g., `feat(popup): add new button`). This is enforced by `commitlint` and `husky` on each commit.
+- **TypeScript:** All new logic should be written in TypeScript. The configuration is defined in `tsconfig.json`, which compiles to ESNext modules and targets modern browsers.

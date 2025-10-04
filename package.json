@@ -7,7 +7,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "clean": "rimraf dist",
     "build:ts": "tsc",
-    "build:assets": "cpx \"app/**/*.{html,css,json,png}\" dist",
+    "build:assets": "cpx \"src/**/*.{html,css,json,png}\" dist && cpx \"assets/**/*\" dist/assets",
     "build": "npm run clean && npm run build:ts && npm run build:assets"
   },
   "repository": {
@@ -31,5 +31,6 @@
     "prettier": "^3.6.2",
     "rimraf": "^6.0.1",
     "typescript": "^5.9.2"
-  }
+  },
+  "packageManager": "pnpm@10.9.0+sha512.0486e394640d3c1fb3c9d43d49cf92879ff74f8516959c235308f5a8f62e2e19528a65cdc2a3058f587cde71eba3d5b56327c8c33a97e4c4051ca48a10ca2d5f"
 }
