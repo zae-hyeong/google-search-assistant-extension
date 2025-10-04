@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Search Flow Popup</title>
+    <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+    <input type="text" id="mainSearchInput" placeholder="검색어를 입력하세요...">
+
+    <div id="tabContainer">
+        <!-- 고급 검색 -->
+        <div class="tab-item">
+            <div class="tab-toggle" id="advancedSearchToggle">
+                <label class="switch">
+                    <input type="checkbox">
+                    <span class="slider"></span>
+                </label>
+                <span>고급 검색</span>
+            </div>
+            <div class="sub-buttons" id="advancedSearchContent">
+                <button class="sub-btn" data-command="site:">사이트 검색</button>
+                <button class="sub-btn" data-command="filetype:">파일 형식</button>
+                <button class="sub-btn" data-command="intitle:">제목 검색</button>
+            </div>
+        </div>
+
+        <!-- 다중 검색 -->
+        <div class="tab-item">
+            <div class="tab-toggle" id="multiSearchToggle">
+                <label class="switch">
+                    <input type="checkbox">
+                    <span class="slider"></span>
+                </label>
+                <span>다중 검색</span>
+            </div>
+            <div class="sub-buttons" id="multiSearchContent">
+                <!-- 다중 검색 하위 버튼들 -->
+            </div>
+        </div>
+
+        <!-- 템플릿 -->
+        <div class="tab-item">
+            <div class="tab-toggle" id="templatesToggle">
+                <label class="switch">
+                    <input type="checkbox">
+                    <span class="slider"></span>
+                </label>
+                <span>템플릿</span>
+            </div>
+            <div class="sub-buttons" id="templatesContent">
+                <!-- 템플릿 하위 버튼들 -->
+            </div>
+        </div>
+    </div>
+
+    <!-- 최근 기록 (별도 섹션) -->
+    <div id="historySection">
+        <p>최근 기록</p>
+        <!-- 최근 기록 내용 -->
+    </div>
+
+    <script type="module" src="popup.js"></script>
+</body>
+</html>
