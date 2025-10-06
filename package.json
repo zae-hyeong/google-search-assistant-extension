@@ -6,9 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "clean": "rimraf dist",
-    "build:ts": "tsc",
-    "build:assets": "cpx \"app/**/*.{html,css,json,png}\" dist",
-    "build": "npm run clean && npm run build:ts && npm run build:assets"
+    "build": "npm run clean && esbuild src/background.ts src/popup/popup.ts src/options/options.ts --bundle --outdir=dist --loader:.png=file && cpx \"src/**/*.{html,css,json}\" dist && cpx \"assets/**/*\" dist/assets"
   },
   "repository": {
     "type": "git",
@@ -27,6 +25,7 @@
     "@types/chrome": "^0.1.12",
     "@types/node": "^24.5.2",
     "cpx": "^1.5.0",
+    "esbuild": "^0.23.0",
     "husky": "^9.1.7",
     "prettier": "^3.6.2",
     "rimraf": "^6.0.1",
