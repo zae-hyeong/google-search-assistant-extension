@@ -1,5 +1,8 @@
-파일 오류
-~\Programming\google-search-assistant-extension\dist
+Service worker registration failed. Status code: 15
 
-Could not load icon 'assets/images/icon16.png' specified in 'icons'.
-매니페스트를 로드할 수 없습니다.
+Uncaught SyntaxError: Unexpected token 'export'
+
+컨텍스트
+dist/background.js
+스택 추적
+dist/background.js:22 (익명의 함수)
